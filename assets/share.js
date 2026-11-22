@@ -2,7 +2,7 @@
 (() => {
   const content = document.getElementById('share-content');
   if (!content) return;
-  const apiBaseUrl = (window.__ENV__?.API_BASE_URL || 'https://api.qabas.one').replace(/\/+$/, '');
+  const apiBaseUrl = (window.__ENV__?.API_BASE_URL || 'https://api.taqool.com').replace(/\/+$/, '');
   const match = /^\/f\/([A-Za-z0-9_-]{32})\/?$/.exec(location.pathname);
   const dialog = document.getElementById('auth-dialog');
   const authContent = document.getElementById('auth-content');

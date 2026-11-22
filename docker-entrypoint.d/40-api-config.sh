@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-api_base_url="${API_BASE_URL:-https://api.qabas.one}"
+api_base_url="${API_BASE_URL:-https://api.taqool.com}"
 
 case "$api_base_url" in
   https://*|http://*) ;;
