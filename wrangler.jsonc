@@ -4,6 +4,6 @@
   "compatibility_date": "2026-11-19",
   "workers_dev": false,
   "routes": [
-    { "pattern": "share.qabas.one/f/*", "zone_name": "qabas.one" }
+    { "pattern": "share.taqool.com/f/*", "zone_name": "qabas.one" }
   ]
 }

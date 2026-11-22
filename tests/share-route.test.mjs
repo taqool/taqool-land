@@ -13,7 +13,7 @@ test('valid links use the static shell without exposing the token upstream', asy
   };
   try {
     const token = 'A'.repeat(32);
-    const response = await route.fetch(new Request(`https://share.qabas.one/f/${token}`));
+    const response = await route.fetch(new Request(`https://share.taqool.com/f/${token}`));
     assert.equal(response.status, 200);
     assert.equal(await response.text(), '<h1>shell</h1>');
     assert.deepEqual(upstreamPaths, ['/404.html']);
@@ -21,13 +21,13 @@ test('valid links use the static shell without exposing the token upstream', asy
     assert.equal(response.headers.get('Referrer-Policy'), 'no-referrer');
     assert.equal(response.headers.get('ETag'), null);
 
-    const invalid = await route.fetch(new Request('https://share.qabas.one/f/invalid'));
+    const invalid = await route.fetch(new Request('https://share.taqool.com/f/invalid'));
     assert.equal(invalid.status, 404);
-    const post = await route.fetch(new Request(`https://share.qabas.one/f/${token}`, { method: 'POST' }));
+    const post = await route.fetch(new Request(`https://share.taqool.com/f/${token}`, { method: 'POST' }));
     assert.equal(post.status, 405);
     assert.equal(post.headers.get('Cache-Control'), 'no-store');
     globalThis.fetch = async () => { throw new Error('origin unavailable'); };
-    const unavailable = await route.fetch(new Request(`https://share.qabas.one/f/${token}`));
+    const unavailable = await route.fetch(new Request(`https://share.taqool.com/f/${token}`));
     assert.equal(unavailable.status, 502);
     assert.equal(unavailable.headers.get('Referrer-Policy'), 'no-referrer');
   } finally {
